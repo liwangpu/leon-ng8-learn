@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from './message.service';
 
 @Component({
     selector: 'app-root',
@@ -8,7 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
     public user = { name: 'robot' };
+    public constructor(private messageSrv: MessageService) {
+
+    }
+
     public changeName(): void {
         this.user.name = Date.now().toString();
+    }
+
+    public sendMessage(): void {
+        this.messageSrv.message$.next(Date.now().toString());
     }
 }
