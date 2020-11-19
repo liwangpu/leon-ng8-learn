@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    public user = { name: 'robot' };
+    public changeName(): void {
+        this.user.name = Date.now().toString();
+    }
 }
