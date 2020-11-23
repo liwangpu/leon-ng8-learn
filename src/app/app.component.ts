@@ -7,6 +7,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 })
 export class AppComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
+    public user = { name: 'Leon' };
     public title = 'leon';
     private key = 'home';
     public constructor() {
@@ -43,6 +44,10 @@ export class AppComponent implements OnChanges, OnInit, DoCheck, AfterContentIni
 
     public ngOnDestroy(): void {
         console.log(`${this.key} destroy`);
+    }
+
+    public test(): void {
+        this.user.name = Date.now().toString();
     }
 
 }
